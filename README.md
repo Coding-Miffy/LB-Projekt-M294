@@ -21,9 +21,9 @@ Die Applikation ist in verschiedene Seiten unterteilt, darunter eine Startseite,
 Hier kommt noch einleitender text hin....
 ### User Stories
 Hier kommt noch etwas Text hin...
-- **User Story 1:** [Naturereignisse entdecken] (issues/4)
-- **User Story 2:** [Eigene Naturereignisse erfassen] (issues/5)
-- **User Story 3:** [Archiv durchstöbern] (issues/6)
+- **User Story 1:** [Naturereignisse entdecken](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/4) 
+- **User Story 2:** [Eigene Naturereignisse erfassen](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/5) 
+- **User Story 3:** [Archiv durchstöbern](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/6) 
 
 ## Diagramm der Modell-Komponenten
 

@@ -11,7 +11,11 @@ Hier kommt das Inhaltsverzeichnis hin
 
 
 ## Projektidee
+Ich entwickle eine React-basierte Webapplikation, mit der Nutzer:innen aktuelle und vergangene Naturereignisse entdecken und verfolgen können. Die Daten zu globalen Naturereignissen wie Waldbränden, Stürmen oder Vulkanausbrüchen werden über die öffentlich zugängliche **NASA EONET** (*Earth Observatory Natural Event Tracker*) **API in Version 3** bezogen. Die Events werden dabei auf einer interaktiven Karte (mittels Leaflet) dargestellt und können nach Kategorien gefiltert werden.
 
+Zusätzlich zur Visualisierung von NASA-Daten können Nutzer:innen eigene Events erfassen, bearbeiten und löschen. Diese benutzerdefinierten Einträge werden lokal gespeichert und in der App direkt sichtbar gemacht. Damit entsteht eine hybride Anwendung aus externer API-Nutzung und lokalem Datenmanagement mit vollständiger CRUD-Funktionalität.
+
+Die Applikation ist in verschiedene Seiten unterteilt, darunter eine Startseite, eine Kartenansicht für aktuelle Events, ein durchsuchbares Archiv beendeter Ereignisse sowie ein Bereich zur Verwaltung benutzerdefinierter Events. Ziel ist es, eine informative, interaktive und benutzerfreundliche Anwendung bereitzustellen, die reale Daten sinnvoll mit eigenen Einträgen kombiniert.
 
 ## Anforderungsanalyse und Use Cases
 

@@ -18,7 +18,7 @@ Zusätzlich zur Visualisierung von NASA-Daten können Nutzer:innen eigene Events
 Die Applikation ist in verschiedene Seiten unterteilt, darunter eine Startseite, eine Kartenansicht für aktuelle Events, ein durchsuchbares Archiv beendeter Ereignisse sowie ein Bereich zur Verwaltung benutzerdefinierter Events. Ziel ist es, eine informative, interaktive und benutzerfreundliche Anwendung bereitzustellen, die reale Daten sinnvoll mit eigenen Einträgen kombiniert.
 
 ## Anforderungsanalyse und Use Cases
-
+[Test] (https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/1)
 
 ## Diagramm der Modell-Komponenten
 

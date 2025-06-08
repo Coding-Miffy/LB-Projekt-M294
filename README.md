@@ -23,7 +23,19 @@ Hier kommt noch einleitender text hin....
 Hier kommt noch etwas Text hin...
 - **User Story 1:** [Naturereignisse entdecken](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/4) 
 - **User Story 2:** [Eigene Naturereignisse erfassen](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/5) 
-- **User Story 3:** [Archiv durchstöbern](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/6) 
+- **User Story 3:** [Archiv durchstöbern](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/6)
+### Kernaufgaben
+Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie beschreiben die zentralen Funktionen der Applikation aus Sicht der Benutzer:innen und dienen als Grundlage für die Planung, Umsetzung und spätere Überprüfung der Anwendung.
+| ID | Funktionale Anforderungen |
+|:---|:---|
+| F1 | Anzeigen von aktuellen Naturereignissen auf einer Weltkarte mit Leaflet |
+| F2 | Filtern der Ereignisse nach Kategorie |
+| F3 | Anzeigen von Detailinformationen zu einem Event |
+| F4 | Formular zum Erfassen von eigenen Ereignissen |
+| F5 | Liste mit Cards für eigene Ereignisse inkl. Bearbeiten und Löschen |
+| F6 | Speicherung eigener Ereignisse im LocalStorage |
+| F7 | Ansicht für vergangene (nicht mehr aktive) Ereignisse mit Filteroptionen |
+| F8 | Navigation zwischen Startseite, Karte, Archiv und "Eigene Events"-Seite (Routing) |
 
 ## Diagramm der Modell-Komponenten
 

@@ -49,6 +49,8 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 ## REST-Schnittstellen
 Notiz: Leaflet dokumentieren
 
+Notiz: Zuerst wurden viel zu viele Events geladen, das System war überlastet, Hilfe von ChatGPT
+
 ## Testplan
 
 

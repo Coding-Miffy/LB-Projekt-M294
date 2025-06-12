@@ -47,7 +47,7 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 
 
 ## REST-Schnittstellen
-
+Notiz: Leaflet dokumentieren
 
 ## Testplan
 
@@ -63,7 +63,7 @@ Hier kommt noch Text für die Hilfestellungen...
 ### ChatGPT
 >1. Zur Rechtschreibekorrektur und teilweise als Unterstützung bei Formulierungen von Text
 >2. Als Unterstützung bei der Initialisierung des Navigations-Hook in `Home.jsx`
->3. ...
+>3. Als Unterstützung bei der Einbindung von Leaflet
 >4. ...
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts

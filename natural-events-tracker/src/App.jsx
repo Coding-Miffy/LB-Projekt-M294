@@ -15,8 +15,8 @@ function App() {
 
   return (
     <Routes>
+      <Route index element={<Home />} /> {/* Outside of Layout -> No Nav */}
       <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
         <Route path='/live-events' element={<LiveEvents />} />
         <Route path='/archive' element={<Archive />} />
         <Route path='/custom-events' element={<CustomEvents />} />

@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
 }
 
 h1 {
@@ -73,7 +74,33 @@ button:focus-visible {
 }
 
 /* My CSS */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .map-container {
   height: 500px;
   width: 800px;
+
+}
+
+.home-container {
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/home-background.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }

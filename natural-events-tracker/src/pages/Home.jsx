@@ -13,7 +13,7 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div className='home-container'>
             <h1>Earth Natural Event Tracker</h1>
             <Button
                 text={'Check it out'}

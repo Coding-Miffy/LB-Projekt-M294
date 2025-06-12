@@ -104,3 +104,38 @@ body,
 #root {
   height: 100%;
 }
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.past-events-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.archive-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.archive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.archive-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.archive-card-detail {
+  margin: 0.25rem 0;
+  color: #555;
+}

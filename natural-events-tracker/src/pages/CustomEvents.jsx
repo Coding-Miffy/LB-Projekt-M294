@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import CustomEventForm from '../components/custom-event-form'
 
 const CustomEvents = () => {
+
+
+
     return (
-        <div>CustomEvents</div>
+        <div>
+            <CustomEventForm />
+        </div>
     )
 }
 

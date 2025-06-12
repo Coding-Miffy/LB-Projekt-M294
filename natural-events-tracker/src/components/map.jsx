@@ -2,13 +2,57 @@ import React from 'react'
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-const Map = ({ center = [20, 0], zoom = 2, markers = [] }) => {
+const categoryEmojis = {
+    wildfires: '🔥',
+    severeStorms: '🌪️',
+    volcanoes: '🌋',
+    seaLakeIce: '🧊',
+    earthquakes: '🌍',
+    floods: '🌊',
+    landslides: '⛰️',
+    snow: '❄️',
+    temperatureExtremes: '🌡️',
+    drought: '☀️',
+    dustHaze: '🌫️',
+    manmade: '🏗️',
+    waterColor: '💧'
+};
+
+const getEmojiIcon = (emoji) =>
+    L.divIcon({
+        html: `<div style="font-size: 24px;">${emoji}</div>`,
+        className: 'emoji-marker',
+        iconSize: [30, 30],
+        iconAnchor: [15, 15]
+    });
+
+const Map = ({ center, zoom, events }) => {
     return (
-        <MapContainer center={center} zoom={zoom} scrollWheelZoom={true} style={{ height: '100%', width: '100%' }}>
+        <MapContainer center={center} zoom={zoom} style={{ height: '80vh', width: '100%' }}>
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            {events.map(event => {
+                const coords = event.geometry[0]?.coordinates;
+                const categoryId = event.categories[0]?.id;
+                const emoji = categoryEmojis[categoryId] || '❓'; // Fallback: Fragezeichen
+
+                if (!coords) return null;
+
+                const [lon, lat] = coords;
+                return (
+                    <Marker
+                        key={event.id}
+                        position={[lat, lon]}
+                        icon={getEmojiIcon(emoji)}
+                    >
+                        <Popup>
+                            <strong>{event.title}</strong><br />
+                            Category: {event.categories[0]?.title}
+                        </Popup>
+                    </Marker>
+                );
+            })}
         </MapContainer>
     );
 };

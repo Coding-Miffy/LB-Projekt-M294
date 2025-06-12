@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
+import 'leaflet/dist/leaflet.css';
 
 import Home from './pages/Home';
 import LiveEvents from './pages/LiveEvents';

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  text-align: center;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -23,14 +26,14 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+/*body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-}
+}*/
 
 h1 {
   font-size: 3.2em;
@@ -74,6 +77,8 @@ button:focus-visible {
 }
 
 /* My CSS */
+
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -138,4 +143,13 @@ body,
 .archive-card-detail {
   margin: 0.25rem 0;
   color: #555;
+}
+
+h1 {
+  font-family: League Spartan;
+}
+
+.home-heading {
+  color: white;
+  font-size: 10rem;
 }

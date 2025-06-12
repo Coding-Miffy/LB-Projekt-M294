@@ -14,7 +14,7 @@ const Home = () => {
 
     return (
         <div className='home-container'>
-            <h1>Earth Natural Event Tracker</h1>
+            <h1 className='home-heading'>Earth Natural Event Tracker</h1>
             <Button
                 text={'Check it out'}
                 onButtonClick={handleClick}

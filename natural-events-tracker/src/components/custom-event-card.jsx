@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from "./button";
+import categoryEmoji from "../utils/categoryEmoji";
+import { CategoryContext } from "../contexts/CategoryContext";
 
 const CustomEventCard = ({ event, onEdit, onDelete }) => {
+
+    const emoji = categoryEmoji(event.category);
 
     const [isEditing, setIsEditing] = useState(false);
 
     const [editTitle, setEditTitle] = useState(event.title);
     const [editDate, setEditDate] = useState(event.date);
     const [editCategory, setEditcategory] = useState(event.category);
+
+    const { categories } = useContext(CategoryContext);
+    const getCategoryTitle = (id) => {
+        const match = categories.find(c => c.id === id);
+        return match ? match.title : id;
+    };
 
     const startEditing = () => {
         setIsEditing(true);
@@ -113,10 +123,12 @@ const CustomEventCard = ({ event, onEdit, onDelete }) => {
                 // SHOW-MODE
                 <>
                     <div className="event-content">
-                        <h3>{event.title}</h3>
+                        <h3>
+                            {emoji} {event.title}
+                        </h3>
                         <div className="event-meta">
-                            <span className="date-badge">{event.date}</span>
-                            <span className="category-badge">{event.category}</span>
+                            <p className="date-badge"><strong>Date:</strong> {event.date}</p>
+                            <p className="category-badge"><strong>Category:</strong> {getCategoryTitle(event.category)}</p>
                         </div>
                     </div>
 

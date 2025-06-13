@@ -1,37 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import categoryEmoji from '../utils/categoryEmoji';
+import { CategoryContext } from '../contexts/CategoryContext';
 
-const categoryEmojis = {
-    wildfires: '🔥',
-    severeStorms: '🌪️',
-    volcanoes: '🌋',
-    seaLakeIce: '🧊',
-    earthquakes: '🌍',
-    floods: '🌊',
-    landslides: '⛰️',
-    snow: '❄️',
-    temperatureExtremes: '🌡️',
-    drought: '☀️',
-    dustHaze: '🌫️',
-    manmade: '🏗️',
-    waterColor: '💧'
-};
 
 const ArchiveEventCard = ({ title, date, category }) => {
 
-    const categoryKey = Object.keys(categoryEmojis).find(key =>
-        category?.toLowerCase().includes(key)
+    const { categories } = useContext(CategoryContext);
+
+    const emoji = categoryEmoji(category);
+
+    const match = categories.find(cat =>
+        category?.toLowerCase().includes(cat.id.toLowerCase())
     );
-    const emoji = categoryEmojis[categoryKey] || '❓';
+    const titleText = match?.title || category || 'Unknown';
 
     return (
         <div className="archive-card">
             <div className="emoji" style={{ fontSize: '2rem' }}>{emoji}</div>
             <h3 className="archive-card-title">{title}</h3>
             <p className="archive-card-detail">
-                <strong>Datum:</strong> {date ? new Date(date).toLocaleDateString() : 'Unbekannt'}
+                <strong>Date:</strong> {date ? new Date(date).toLocaleDateString() : 'Unknown'}
             </p>
             <p className="archive-card-detail">
-                <strong>Kategorie:</strong> {category ?? 'Unbekannt'}
+                <strong>Category:</strong> {titleText}
             </p>
         </div>
     );

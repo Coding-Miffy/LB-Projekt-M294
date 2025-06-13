@@ -116,7 +116,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
                     <option value="wildfires">🔥 Wildfire</option>
                     <option value="severeStorms">🌪️ Severe Storm</option>
                     <option value="volcanoes">🌋 Volcanoe</option>
-                    <option value="seaLakeIce">🧊 Sea Lake Ice</option>
+                    <option value="seaLakeIce">🧊 Sea and Lake Ice</option>
                     <option value="earthquakes">🌍 Earthquake</option>
                     <option value="floods">🌊 Flood</option>
                     <option value="landslides">⛰️ Landslide</option>

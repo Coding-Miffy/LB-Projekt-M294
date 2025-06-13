@@ -18,9 +18,9 @@ Zusätzlich zur Visualisierung von NASA-Daten können Nutzer:innen eigene Events
 Die Applikation ist in verschiedene Seiten unterteilt, darunter eine Startseite, eine Kartenansicht für aktuelle Events, ein durchsuchbares Archiv beendeter Ereignisse sowie ein Bereich zur Verwaltung benutzerdefinierter Events. Ziel ist es, eine informative, interaktive und benutzerfreundliche Anwendung bereitzustellen, die reale Daten sinnvoll mit eigenen Einträgen kombiniert.
 
 ## Anforderungsanalyse
-Hier kommt noch einleitender text hin....
+Im Rahmen der Anforderungsanalyse wurden zentrale Funktionen und Nutzungsszenarien der Applikation identifiziert. Dabei lag der Fokus darauf, typische Interaktionen aus Sicht der Benutzer:innen zu beschreiben und die daraus resultierenden Systemanforderungen abzuleiten. Die erarbeiteten Anforderungen bilden die Grundlage für die technische Umsetzung und dienen zugleich als Referenz für Tests und Evaluationen.
 ### User Stories
-Hier kommt noch etwas Text hin...
+Die folgenden User Stories beschreiben zentrale Nutzungssituationen aus der Perspektive verschiedener Benutzer:innen. Sie helfen dabei, die funktionalen Anforderungen praxisnah zu formulieren und das Verhalten der Anwendung an realen Bedürfnissen auszurichten. Jede Story beschreibt ein konkretes Ziel, das eine Benutzer:in mit der Applikation erreichen möchte.
 - **User Story 1:** [Naturereignisse entdecken](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/4) 
 - **User Story 2:** [Eigene Naturereignisse erfassen](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/5) 
 - **User Story 3:** [Archiv durchstöbern](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/6)
@@ -47,10 +47,49 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 
 
 ## REST-Schnittstellen
-Notiz: Leaflet dokumentieren
+Im Zentrum der Applikation steht die dynamische Anzeige und Verwaltung von Naturereignissen. Dazu greift das System auf zwei unterschiedliche Datenquellen zurück: eine öffentliche REST-API der NASA für Live- und Archivdaten sowie den LocalStorage des Browsers für benutzerdefinierte Ereignisse. Die folgenden Schnittstellen wurden gezielt eingebunden, um sowohl offizielle Ereignisdaten als auch eigene Einträge effizient bereitzustellen und flexibel zu verwalten.
+### 1. NASA EONET v3 API
+**Beschreibung:** Stellt aktuelle und vergangene Naturereignisse weltweit zur Verfügung. Die Daten beinhalten Titel, Kategorie, Geokoordinaten, Status (open/closed) und weitere Metadaten.
 
-Notiz: Zuerst wurden viel zu viele Events geladen, das System war überlastet, Hilfe von ChatGPT
+**Base-URL:** `https://eonet.gsfc.nasa.gov/api/v3/`
+#### Wichtige Endpoints im Projekt:
+| Endpoint | Beschreibung |
+|:---|:---|
+| `/events` | Ruft alle offenen Events ab |
+| `/events?category=wildfires&limit=50` | Ruft gefilterte Events nach Kategorie und Limit ab |
+| `/events?status=closed` | Liefert abgeschlossene (archivierte) Ereignisse |
 
+**Beispiel-Antwort:**
+```json
+{
+  "events": [
+    {
+      "id": "EONET_1234",
+      "title": "Wildfire in California",
+      "categories": [{ "id": "wildfires", "title": "Wildfires" }],
+      "geometry": [{ "coordinates": [-120.5, 36.2] }],
+      "status": "open"
+    }
+  ]
+}
+```
+### 2. LocalStorage (Custom Events)
+**Beschreibung:** Eigene Naturereignisse der Benutzer:innen werden im Browser-LocalStorage gespeichert, ohne Serveranbindung.
+
+**Struktur der gespeicherten Daten:**
+```json
+[
+  {
+    "id": "abc123",
+    "title": "My Local Event",
+    "date": "2024-01-01",
+    "category": "wildfires"
+  }
+]
+```
+**Verwendung im Projekt:**
+- Speichern, Bearbeiten und Löschen eigener Events
+- Daten bleiben lokal im Browser gespeichert
 ## Testplan
 Zur Qualitätssicherung der Applikation wurde ein strukturierter Testplan erstellt, der gezielt zentrale Komponenten der Anwendung prüft. Die ausgewählten Testfälle orientieren sich an realen Nutzungsszenarien und decken sowohl die Geschäftslogik als auch die Benutzerinteraktion im Frontend ab.
 
@@ -200,8 +239,42 @@ describe('Button component', () => {
 });
 ```
 ## Installationsanleitung
-
-
+Diese Anleitung beschreibt die Schritte, um die Applikation lokal auszuführen und die enthaltenen Unit-Tests zu prüfen.
+### Voraussetzungen
+Für die Ausführung werden folgende Komponenten benötigt:
+- **Node.js** (empfohlene LTS-Version)
+- **npm** (wird automatisch mit Node.js installiert)
+### Projekt vorbereiten
+1. Projektverzeichnis entpacken oder aus dem Repository klonen.
+2. In das Projektverzeichnis wechseln:
+```bash
+cd natural-events-tracker
+```
+3. Abhängigkeiten installieren:
+```bash
+npm install
+```
+### Applikation starten
+Die Applikation wird mit folgendem Befehl gestartet:
+```bash
+npm run dev
+```
+Standardmässig ist sie anschliessend unter http://localhost:5173 erreichbar.
+### Externe Dienste
+Die Applikation verwendet:
+- **NASA EONET API v3** – zur Anzeige aktueller und vergangener Naturereignisse
+- **Leaflet** – zur Darstellung dieser Events auf einer interaktiven Weltkarte
+Beide Dienste sind öffentlich zugänglich und erfordern keine Authentifizierung.
+### Unit-Tests ausführen
+Das Projekt enthält Unit-Tests, die mit `Vitest` und `@testing-library/react` umgesetzt wurden.  
+Die Tests lassen sich wie folgt ausführen:
+```bash
+npx vitest run
+```
+Alternativ im Watch-Modus:
+```bash
+npx vitest
+```
 ## Hilfestellungen
 Hier kommt noch Text für die Hilfestellungen...
 ### ChatGPT
@@ -209,11 +282,12 @@ Hier kommt noch Text für die Hilfestellungen...
 >2. Beim strukturieren des Projekts und des Vorgehens
 >3. Als Unterstützung bei der Initialisierung des Navigations-Hook in `Home.jsx`
 >4. Als Unterstützung bei der Einbindung von Leaflet
->5. Als Unterstützung beim Erstellen von `CategoryContext.jsx` und `categoryEmoji.js`
->6. Beim Styling des Projekts mittels CSS
->7. Beim Verwenden von `<NavLink>` in `navigation.jsx`
->8. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
->9. 
+>5. Zu viele Events überlasteten die App – ChatGPT half mir, eine Limitierung einzubauen.
+>6. Als Unterstützung beim Erstellen von `CategoryContext.jsx` und `categoryEmoji.js`
+>7. Beim Styling des Projekts mittels CSS
+>8. Beim Verwenden von `<NavLink>` in `navigation.jsx`
+>9. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
+>10. Unterstützend beim Verfassen der Installationsanleitung
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts
 

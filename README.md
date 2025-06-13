@@ -47,10 +47,49 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 
 
 ## REST-Schnittstellen
-Notiz: Leaflet dokumentieren
+Im Zentrum der Applikation steht die dynamische Anzeige und Verwaltung von Naturereignissen. Dazu greift das System auf zwei unterschiedliche Datenquellen zurück: eine öffentliche REST-API der NASA für Live- und Archivdaten sowie den LocalStorage des Browsers für benutzerdefinierte Ereignisse. Die folgenden Schnittstellen wurden gezielt eingebunden, um sowohl offizielle Ereignisdaten als auch eigene Einträge effizient bereitzustellen und flexibel zu verwalten.
+### 1. NASA EONET v3 API
+**Beschreibung:** Stellt aktuelle und vergangene Naturereignisse weltweit zur Verfügung. Die Daten beinhalten Titel, Kategorie, Geokoordinaten, Status (open/closed) und weitere Metadaten.
 
-Notiz: Zuerst wurden viel zu viele Events geladen, das System war überlastet, Hilfe von ChatGPT
+**Base-URL:** `https://eonet.gsfc.nasa.gov/api/v3/`
+#### Wichtige Endpoints im Projekt:
+| Endpoint | Beschreibung |
+|:---|:---|
+| `/events` | Ruft alle offenen Events ab |
+| `/events?category=wildfires&limit=50` | Ruft gefilterte Events nach Kategorie und Limit ab |
+| `/events?status=closed` | Liefert abgeschlossene (archivierte) Ereignisse |
 
+**Beispiel-Antwort:**
+```json
+{
+  "events": [
+    {
+      "id": "EONET_1234",
+      "title": "Wildfire in California",
+      "categories": [{ "id": "wildfires", "title": "Wildfires" }],
+      "geometry": [{ "coordinates": [-120.5, 36.2] }],
+      "status": "open"
+    }
+  ]
+}
+```
+### 2. LocalStorage (Custom Events)
+**Beschreibung:** Eigene Naturereignisse der Benutzer:innen werden im Browser-LocalStorage gespeichert, ohne Serveranbindung.
+
+**Struktur der gespeicherten Daten:**
+```json
+[
+  {
+    "id": "abc123",
+    "title": "My Local Event",
+    "date": "2024-01-01",
+    "category": "wildfires"
+  }
+]
+```
+**Verwendung im Projekt:**
+- Speichern, Bearbeiten und Löschen eigener Events
+- Daten bleiben lokal im Browser gespeichert
 ## Testplan
 Zur Qualitätssicherung der Applikation wurde ein strukturierter Testplan erstellt, der gezielt zentrale Komponenten der Anwendung prüft. Die ausgewählten Testfälle orientieren sich an realen Nutzungsszenarien und decken sowohl die Geschäftslogik als auch die Benutzerinteraktion im Frontend ab.
 

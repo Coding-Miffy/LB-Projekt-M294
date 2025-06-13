@@ -52,8 +52,15 @@ Notiz: Leaflet dokumentieren
 Notiz: Zuerst wurden viel zu viele Events geladen, das System war überlastet, Hilfe von ChatGPT
 
 ## Testplan
-
-
+Einleitender Text
+### Testfälle
+| Nr. | Komponente / Datei | Testziel |
+|:---|:---|:---|
+| 1 | `utils/categoryEmoji.js` | Gibt für eine bekannte Kategorie das richtige Emoji zurück |
+| 2 | `components/CustomEventForm.jsx` | Validiert korrekt, ob Pflichtfelder leer sind |
+| 3 | `components/CustomEventCard.jsx` | Reagiert korrekt auf das Speichern veränderter Events |
+| 4 | `utils/api.js` | `fetchLiveEventsByCategory()` gibt eine Liste von Events zurück |
+| 5 | `components/Button.jsx` | Löst beim Klick korrekt das Callback `onButtonClick` aus |
 ## Durchführung der Tests
 
 

@@ -16,7 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/*a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -26,7 +26,7 @@ a:hover {
   color: #535bf2;
 }
 
-/*body {
+body {
   margin: 0;
   display: flex;
   place-items: center;
@@ -52,7 +52,7 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
+/*button:hover {
   border-color: #646cff;
 }
 
@@ -74,14 +74,29 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+}*/
 
 /* My CSS */
-
-
 * {
   margin: 0;
   box-sizing: border-box;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 25px;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .map-container {

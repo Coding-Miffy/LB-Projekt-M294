@@ -18,6 +18,7 @@ const Home = () => {
             <Button
                 text={'Check it out'}
                 onButtonClick={handleClick}
+                className={'home-button'}
             />
         </div>
     );

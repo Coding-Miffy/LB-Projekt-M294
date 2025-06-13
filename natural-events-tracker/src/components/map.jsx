@@ -11,7 +11,6 @@ const categoryEmojis = {
     floods: '🌊',
     landslides: '⛰️',
     snow: '❄️',
-    temperatureExtremes: '🌡️',
     drought: '☀️',
     dustHaze: '🌫️',
     manmade: '🏗️',

@@ -98,7 +98,6 @@ const CustomEventCard = ({ event, onEdit, onDelete }) => {
                             <option value="floods">🌊 Flood</option>
                             <option value="landslides">⛰️ Landslide</option>
                             <option value="snow">❄️ Snow</option>
-                            <option value="temperatureExtremes">🌡️ Temperature Extremes</option>
                             <option value="drought">☀️ Drought</option>
                             <option value="dustHaze">🌫️ Dust Haze</option>
                             <option value="manmade">🏗️ Manmade</option>

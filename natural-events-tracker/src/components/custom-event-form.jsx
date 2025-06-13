@@ -67,6 +67,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
         setTitle("");
         setDate("");
         setCategory("");
+        setIsSubmitting(false);
     };
 
 

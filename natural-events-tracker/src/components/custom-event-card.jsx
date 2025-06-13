@@ -127,7 +127,7 @@ const CustomEventCard = ({ event, onEdit, onDelete }) => {
                             {emoji} {event.title}
                         </h3>
                         <div className="event-meta">
-                            <p className="date-badge"><strong>Date:</strong> {event.date}</p>
+                            <p className="date-badge"><strong>Date:</strong> {event.date = new Date(event.date).toLocaleDateString()}</p>
                             <p className="category-badge"><strong>Category:</strong> {getCategoryTitle(event.category)}</p>
                         </div>
                     </div>

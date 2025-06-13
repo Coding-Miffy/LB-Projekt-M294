@@ -8,6 +8,14 @@ export async function fetchLiveEvents(limit = 100) {
     return data.events;
 }
 
+// Fetch live events filtered by category and limit
+export async function fetchLiveEventsByCategory(category, limit = 50) {
+    const response = await fetch(`${BASE_URL}/events?category=${category}&status=open&limit=${limit}`);
+    if (!response.ok) throw new Error('Failed to fetch category-filtered live events');
+    const data = await response.json();
+    return data.events;
+}
+
 // Fetch all past (closed) events
 export async function fetchPastEvents(limit = 20) {
     const response = await fetch(`${BASE_URL}/events?status=closed&limit=${limit}`);
@@ -15,9 +23,19 @@ export async function fetchPastEvents(limit = 20) {
     const data = await response.json();
     return data.events;
 }
+
+// Fetch past (closed) events filtered by category and limit
+export async function fetchPastEventsByCategory(category, limit = 50) {
+    const response = await fetch(`${BASE_URL}/events?category=${category}&status=closed&limit=${limit}`);
+    if (!response.ok) throw new Error('Failed to fetch category-filtered past events');
+    const data = await response.json();
+    return data.events;
+}
+
 // Fetch details of a single event by ID
 export async function fetchEventDetails(eventId) {
     const response = await fetch(`${BASE_URL}/events/${eventId}`);
     if (!response.ok) throw new Error('Failed to fetch event details');
     return await response.json();
 }
+

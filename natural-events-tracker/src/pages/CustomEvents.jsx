@@ -40,8 +40,8 @@ const CustomEvents = () => {
     };
 
     return (
-        <div className='custom-events-manager'>
-            <h1>Manage events</h1>
+        <div className="page-container">
+            <h1 className="section-title">Your Custom Events</h1>
 
             <CustomEventForm onEventSubmit={handleEventSubmit} />
 
@@ -54,7 +54,7 @@ const CustomEvents = () => {
                         <p>Use the form above to create your first event!</p>
                     </div>
                 ) : (
-                    <div className='events-list'>
+                    <div className='custom-events-list'>
                         {savedEvents.map((event) => (
                             <CustomEventCard
                                 key={event.id}

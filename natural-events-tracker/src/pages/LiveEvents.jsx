@@ -26,19 +26,20 @@ const LiveEvents = () => {
 
     return (
 
-        <div className='map-container'>
-
+        <div className="page-container">
+            <h1 className="section-title">Live Earth Natural Events</h1>
 
             <div className="filters">
                 <label>
-                    <strong>Category: </strong>
+                    Category:
                     <select
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="form-input"
                     >
                         <option value="wildfires">🔥 Wildfire</option>
                         <option value="severeStorms">🌪️ Severe Storm</option>
-                        <option value="volcanoes">🌋 Volcanoe</option>
+                        <option value="volcanoes">🌋 Volcano</option>
                         <option value="seaLakeIce">🧊 Sea and Lake Ice</option>
                         <option value="earthquakes">🌍 Earthquake</option>
                         <option value="floods">🌊 Flood</option>
@@ -51,20 +52,23 @@ const LiveEvents = () => {
                     </select>
                 </label>
 
-                <label htmlFor="range"><strong>Limit Events:</strong> {limit}</label>
-                <input
-                    id="range"
-                    type="range"
-                    min="10"
-                    max="100"
-                    step="10"
-                    value={limit}
-                    onChange={e => setLimit(parseInt(e.target.value))}
-                />
+                <label>
+                    Limit: {limit}
+                    <input
+                        type="range"
+                        min="10"
+                        max="100"
+                        step="10"
+                        value={limit}
+                        onChange={(e) => setLimit(parseInt(e.target.value))}
+                        className="form-input"
+                    />
+                </label>
             </div>
 
             {isLoading && <p>🔄 Loading...</p>}
             {error && <p>❌ {error}</p>}
+
             <Map center={[20, 0]} zoom={2} events={events} />
         </div>
     );

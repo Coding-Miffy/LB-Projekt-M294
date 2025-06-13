@@ -15,7 +15,7 @@ const getEmojiIcon = (emoji) =>
 
 const Map = ({ center, zoom, events }) => {
     return (
-        <MapContainer center={center} zoom={zoom} style={{ height: '80vh', width: '100%' }}>
+        <MapContainer center={center} zoom={zoom} style={{ height: '50vh', width: '100%' }}>
             <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
             {events.map(event => {
@@ -34,8 +34,14 @@ const Map = ({ center, zoom, events }) => {
                         icon={getEmojiIcon(emoji)}
                     >
                         <Popup>
-                            <strong>{event.title}</strong><br />
-                            Category: {event.categories[0]?.title}
+                            <div className="popup-content">
+                                <div className="popup-emoji">{emoji}</div>
+                                <div className="popup-title">{event.title}</div>
+                                <div className="popup-meta">
+                                    <div><strong>Category:</strong> {event.categories[0]?.title}</div>
+                                    <div><strong>Date:</strong> {new Date(event.geometry[0]?.date).toLocaleDateString()}</div>
+                                </div>
+                            </div>
                         </Popup>
                     </Marker>
                 );

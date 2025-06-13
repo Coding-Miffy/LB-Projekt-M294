@@ -11,7 +11,7 @@ const CustomEventCard = ({ event, onEdit, onDelete }) => {
 
     const [editTitle, setEditTitle] = useState(event.title);
     const [editDate, setEditDate] = useState(event.date);
-    const [editCategory, setEditcategory] = useState(event.category);
+    const [editCategory, setEditcategory] = useState('wildfires');
 
     const { categories } = useContext(CategoryContext);
     const getCategoryTitle = (id) => {
@@ -113,7 +113,7 @@ const CustomEventCard = ({ event, onEdit, onDelete }) => {
                         />
                         <Button
                             text={"Cancel"}
-                            onButtonClick={saveChanges}
+                            onButtonClick={cancelEditing}
                             className={"cancel-button"}
                         />
                     </div>
@@ -121,17 +121,17 @@ const CustomEventCard = ({ event, onEdit, onDelete }) => {
             ) : (
                 // SHOW-MODE
                 <>
-                    <div className="event-content">
+                    <div className="custom-event-card" key={event.id}>
                         <h3>
                             {emoji} {event.title}
                         </h3>
                         <div className="event-meta">
-                            <p className="date-badge"><strong>Date:</strong> {event.date = new Date(event.date).toLocaleDateString()}</p>
+                            <p className="date-badge"><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
                             <p className="category-badge"><strong>Category:</strong> {getCategoryTitle(event.category)}</p>
                         </div>
                     </div>
 
-                    <div className="event-actions">
+                    <div className="custom-event-actions">
                         <Button
                             text={"Edit"}
                             onButtonClick={startEditing}

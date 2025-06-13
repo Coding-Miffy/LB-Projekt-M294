@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
     return (
         <nav className='layout-header-nav'>
-            <Link to='/'>Home</Link>
-            <Link to='/live-events'>Live Events</Link>
-            <Link to='/archive'>Archive</Link>
-            <Link to='/custom-events'>Custom Events</Link>
+            <NavLink to='/' className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
+            <NavLink to='/live-events' className={({ isActive }) => isActive ? 'active' : ''}>Live Events</NavLink>
+            <NavLink to='/archive' className={({ isActive }) => isActive ? 'active' : ''}>Archive</NavLink>
+            <NavLink to='/custom-events' className={({ isActive }) => isActive ? 'active' : ''}>Custom Events</NavLink>
         </nav>
     )
 }

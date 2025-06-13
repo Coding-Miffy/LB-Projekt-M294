@@ -43,6 +43,7 @@ const Archive = () => {
                     <select
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
+                        className='form-input'
                     >
                         <option value="wildfires">🔥 Wildfire</option>
                         <option value="severeStorms">🌪️ Severe Storm</option>
@@ -65,6 +66,7 @@ const Archive = () => {
                         type="date"
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
+                        className='form-input'
                     />
                 </label>
 
@@ -74,6 +76,7 @@ const Archive = () => {
                         type="date"
                         value={endDate}
                         onChange={(e) => setEndDate(e.target.value)}
+                        className='form-input'
                     />
                 </label>
 
@@ -86,6 +89,7 @@ const Archive = () => {
                         step="10"
                         value={limit}
                         onChange={(e) => setLimit(parseInt(e.target.value))}
+                        className='form-input'
                     />
                 </label>
             </div>

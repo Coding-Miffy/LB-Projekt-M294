@@ -5,7 +5,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
 
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('wildfires');
 
     const [titleError, setTitleError] = useState('');
     const [dateError, setDateError] = useState('');
@@ -73,10 +73,10 @@ const CustomEventForm = ({ onEventSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit} className="event-form">
-            <h1>Create new event</h1>
+            <h3>Create new event: </h3>
 
             <div className="form-group">
-                <label htmlFor="title">Title *</label>
+                <label htmlFor="title">Title: </label>
                 <input
                     type="text"
                     id="title"
@@ -91,7 +91,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
             </div>
 
             <div className="form-group">
-                <label htmlFor="date">Date *</label>
+                <label htmlFor="date">Date: </label>
                 <input
                     type="date"
                     id="date"
@@ -106,7 +106,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
             </div>
 
             <div className="form-group">
-                <label htmlFor="category">Category *</label>
+                <label htmlFor="category">Category: </label>
                 <select
                     id="category"
                     value={category}

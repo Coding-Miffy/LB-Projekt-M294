@@ -8,16 +8,32 @@ const Archive = () => {
     const [error, setError] = useState(null);
 
     const [selectedCategory, setSelectedCategory] = useState('wildfires');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
     const [limit, setLimit] = useState(20);
 
     useEffect(() => {
         fetchPastEventsByCategory(selectedCategory, limit)
-            .then(setEvents)
+            .then(fetchedEvents => {
+                const filteredByDate = fetchedEvents.filter(event => {
+                    const eventDate = new Date(event.geometry[0]?.date);
+
+                    // Wenn ein Startdatum gesetzt ist, muss das Eventdatum >= Startdatum sein
+                    const isAfterStart = startDate ? eventDate >= new Date(startDate) : true;
+
+                    // Wenn ein Enddatum gesetzt ist, muss das Eventdatum <= Enddatum sein
+                    const isBeforeEnd = endDate ? eventDate <= new Date(endDate) : true;
+
+                    return isAfterStart && isBeforeEnd;
+                });
+
+                setEvents(filteredByDate);
+            })
             .catch(err => {
                 console.error(err);
                 setError('Could not load events.');
             });
-    }, [selectedCategory, limit]);
+    }, [selectedCategory, limit, startDate, endDate]);
 
     return (
         <div className="past-events-container" style={{ padding: '1rem' }}>
@@ -41,6 +57,24 @@ const Archive = () => {
                         <option value="manmade">🏗️ Manmade</option>
                         <option value="waterColor">💧 Water Color</option>
                     </select>
+                </label>
+
+                <label>
+                    Start Date:
+                    <input
+                        type="date"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                    />
+                </label>
+
+                <label>
+                    End Date:
+                    <input
+                        type="date"
+                        value={endDate}
+                        onChange={(e) => setEndDate(e.target.value)}
+                    />
                 </label>
 
                 <label>

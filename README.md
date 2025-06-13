@@ -67,6 +67,8 @@ Hier kommt noch Text für die Hilfestellungen...
 >2. Als Unterstützung bei der Initialisierung des Navigations-Hook in `Home.jsx`
 >3. Als Unterstützung bei der Einbindung von Leaflet
 >4. Als Unterstützung beim Erstellen von `CategoryContext.jsx` und `categoryEmoji.js`
+>5. Beim Styling des Projekts mittels CSS
+>6. Beim Verwenden von `<NavLink>` in `navigation.jsx`
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts
 

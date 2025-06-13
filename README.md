@@ -200,8 +200,42 @@ describe('Button component', () => {
 });
 ```
 ## Installationsanleitung
-
-
+Diese Anleitung beschreibt die Schritte, um die Applikation lokal auszuführen und die enthaltenen Unit-Tests zu prüfen.
+### Voraussetzungen
+Für die Ausführung werden folgende Komponenten benötigt:
+- **Node.js** (empfohlene LTS-Version)
+- **npm** (wird automatisch mit Node.js installiert)
+### Projekt vorbereiten
+1. Projektverzeichnis entpacken oder aus dem Repository klonen.
+2. In das Projektverzeichnis wechseln:
+```bash
+cd natural-events-tracker
+```
+3. Abhängigkeiten installieren:
+```bash
+npm install
+```
+### Applikation starten
+Die Applikation wird mit folgendem Befehl gestartet:
+```bash
+npm run dev
+```
+Standardmässig ist sie anschliessend unter http://localhost:5173 erreichbar.
+### Externe Dienste
+Die Applikation verwendet:
+- **NASA EONET API v3** – zur Anzeige aktueller und vergangener Naturereignisse
+- **Leaflet** – zur Darstellung dieser Events auf einer interaktiven Weltkarte
+Beide Dienste sind öffentlich zugänglich und erfordern keine Authentifizierung.
+### Unit-Tests ausführen
+Das Projekt enthält Unit-Tests, die mit `Vitest` und `@testing-library/react` umgesetzt wurden.  
+Die Tests lassen sich wie folgt ausführen:
+```bash
+npx vitest run
+```
+Alternativ im Watch-Modus:
+```bash
+npx vitest
+```
 ## Hilfestellungen
 Hier kommt noch Text für die Hilfestellungen...
 ### ChatGPT
@@ -213,7 +247,7 @@ Hier kommt noch Text für die Hilfestellungen...
 >6. Beim Styling des Projekts mittels CSS
 >7. Beim Verwenden von `<NavLink>` in `navigation.jsx`
 >8. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
->9. 
+>9. Unterstützend beim Verfassen der Installationsanleitung
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts
 

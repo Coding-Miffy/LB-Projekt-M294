@@ -18,9 +18,9 @@ Zusätzlich zur Visualisierung von NASA-Daten können Nutzer:innen eigene Events
 Die Applikation ist in verschiedene Seiten unterteilt, darunter eine Startseite, eine Kartenansicht für aktuelle Events, ein durchsuchbares Archiv beendeter Ereignisse sowie ein Bereich zur Verwaltung benutzerdefinierter Events. Ziel ist es, eine informative, interaktive und benutzerfreundliche Anwendung bereitzustellen, die reale Daten sinnvoll mit eigenen Einträgen kombiniert.
 
 ## Anforderungsanalyse
-Hier kommt noch einleitender text hin....
+Im Rahmen der Anforderungsanalyse wurden zentrale Funktionen und Nutzungsszenarien der Applikation identifiziert. Dabei lag der Fokus darauf, typische Interaktionen aus Sicht der Benutzer:innen zu beschreiben und die daraus resultierenden Systemanforderungen abzuleiten. Die erarbeiteten Anforderungen bilden die Grundlage für die technische Umsetzung und dienen zugleich als Referenz für Tests und Evaluationen.
 ### User Stories
-Hier kommt noch etwas Text hin...
+Die folgenden User Stories beschreiben zentrale Nutzungssituationen aus der Perspektive verschiedener Benutzer:innen. Sie helfen dabei, die funktionalen Anforderungen praxisnah zu formulieren und das Verhalten der Anwendung an realen Bedürfnissen auszurichten. Jede Story beschreibt ein konkretes Ziel, das eine Benutzer:in mit der Applikation erreichen möchte.
 - **User Story 1:** [Naturereignisse entdecken](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/4) 
 - **User Story 2:** [Eigene Naturereignisse erfassen](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/5) 
 - **User Story 3:** [Archiv durchstöbern](https://github.com/Coding-Miffy/m294-natural-events-tracker/issues/6)
@@ -243,11 +243,12 @@ Hier kommt noch Text für die Hilfestellungen...
 >2. Beim strukturieren des Projekts und des Vorgehens
 >3. Als Unterstützung bei der Initialisierung des Navigations-Hook in `Home.jsx`
 >4. Als Unterstützung bei der Einbindung von Leaflet
->5. Als Unterstützung beim Erstellen von `CategoryContext.jsx` und `categoryEmoji.js`
->6. Beim Styling des Projekts mittels CSS
->7. Beim Verwenden von `<NavLink>` in `navigation.jsx`
->8. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
->9. Unterstützend beim Verfassen der Installationsanleitung
+>5. Zu viele Events überlasteten die App – ChatGPT half mir, eine Limitierung einzubauen.
+>6. Als Unterstützung beim Erstellen von `CategoryContext.jsx` und `categoryEmoji.js`
+>7. Beim Styling des Projekts mittels CSS
+>8. Beim Verwenden von `<NavLink>` in `navigation.jsx`
+>9. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
+>10. Unterstützend beim Verfassen der Installationsanleitung
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts
 

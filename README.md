@@ -41,7 +41,7 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 
 
 ## Storyboard
-
+- [Zum Storyboard](/natural-events-tracker/docs/storyboard.md)
 
 ## Screen-Mockups
 

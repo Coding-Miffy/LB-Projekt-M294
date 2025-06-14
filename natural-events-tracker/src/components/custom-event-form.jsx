@@ -1,80 +1,98 @@
+// React Hook zum Verwalten von Zuständen importieren
 import { useState } from 'react';
+// Wiederverwendbare Button-Komponente importieren
 import Button from './button';
 
+// Formular-Komponente für die Erstellung von benutzerdefinierten Events
 const CustomEventForm = ({ onEventSubmit }) => {
 
+    // Formularwerte als State definieren
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
     const [category, setCategory] = useState('wildfires');
 
+    // Fehler-States für die Validierung der Eingabefelder
     const [titleError, setTitleError] = useState('');
     const [dateError, setDateError] = useState('');
     const [categoryError, setCategoryError] = useState('');
+
+    // Zeigt an, ob gerade eine Speicherung im Gange ist
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // Aktualisiert den Titel und entfernt evtl. vorhandene Fehlermeldung
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
         if (titleError) setTitleError("");
     };
 
+    // Aktualisiert das Datum und entfernt evtl. vorhandene Fehlermeldung
     const handleDateChange = (e) => {
         setDate(e.target.value);
         if (dateError) setDateError("");
     };
 
+    // Aktualisiert die Kategorie und entfernt evtl. vorhandene Fehlermeldung
     const handleCategoryChange = (e) => {
         setCategory(e.target.value);
         if (categoryError) setCategoryError("");
     };
 
+    // Prüft, ob alle erforderlichen Felder ausgefüllt sind
     const validateForm = () => {
         let isValid = true;
 
+        // Fehler zurücksetzen
         setTitleError("");
         setDateError("");
         setCategoryError("");
 
+        // Titel darf nicht leer sein
         if (!title.trim()) {
-            setTitleError("Enter title")
+            setTitleError("Enter title");
             isValid = false;
         }
 
+        // Datum darf nicht leer sein
         if (!date.trim()) {
-            setDateError("Choose a date")
+            setDateError("Choose a date");
             isValid = false;
         }
 
         return isValid;
     };
 
+    // Handler für das Absenden des Formulars
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // verhindert Seitenreload
 
-        if (!validateForm()) {
-            return;
-        }
+        // Validierung prüfen – falls ungültig, abbrechen
+        if (!validateForm()) return;
 
-        setIsSubmitting(true);
+        setIsSubmitting(true); // Status "wird gesendet" aktivieren
 
+        // Neues Event zusammenstellen
         const newEvent = {
             title: title,
             date: date,
             category: category,
-        }
+        };
 
+        // Event an die Elternkomponente übergeben
         onEventSubmit(newEvent);
 
+        // Formular zurücksetzen
         setTitle("");
         setDate("");
         setCategory("");
         setIsSubmitting(false);
     };
 
-
+    // JSX – Das Formular zur Event-Erstellung
     return (
         <form onSubmit={handleSubmit} className="event-form">
             <h3>Create new event: </h3>
 
+            {/* Titel-Eingabefeld */}
             <div className="form-group">
                 <label htmlFor="title">Title: </label>
                 <input
@@ -85,11 +103,13 @@ const CustomEventForm = ({ onEventSubmit }) => {
                     placeholder="Title"
                     className={`form-input ${titleError ? "form-input--error" : ""}`}
                 />
+                {/* Fehlermeldung anzeigen, falls vorhanden */}
                 {titleError && (
                     <span className='error-message'>{titleError}</span>
                 )}
             </div>
 
+            {/* Datums-Eingabefeld */}
             <div className="form-group">
                 <label htmlFor="date">Date: </label>
                 <input
@@ -97,7 +117,6 @@ const CustomEventForm = ({ onEventSubmit }) => {
                     id="date"
                     value={date}
                     onChange={handleDateChange}
-                    placeholder=""
                     className={`form-input ${dateError ? "form-input--error" : ""}`}
                 />
                 {dateError && (
@@ -105,6 +124,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
                 )}
             </div>
 
+            {/* Kategorie-Auswahl */}
             <div className="form-group">
                 <label htmlFor="category">Category: </label>
                 <select
@@ -113,6 +133,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
                     onChange={handleCategoryChange}
                     className="form-input"
                 >
+                    {/* Liste der verfügbaren Kategorien */}
                     <option value="wildfires">🔥 Wildfire</option>
                     <option value="severeStorms">🌪️ Severe Storm</option>
                     <option value="volcanoes">🌋 Volcanoe</option>
@@ -128,6 +149,7 @@ const CustomEventForm = ({ onEventSubmit }) => {
                 </select>
             </div>
 
+            {/* Absende-Button */}
             <div className="form-submit">
                 <Button
                     text={isSubmitting ? "Saving..." : "Create Event"}

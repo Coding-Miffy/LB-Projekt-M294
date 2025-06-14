@@ -1,38 +1,50 @@
-import React from 'react'
+// Importiert das Standard-Stylesheet von Leaflet (Pflicht für korrekte Darstellung)
 import 'leaflet/dist/leaflet.css';
+
+// Importiert benötigte Komponenten von react-leaflet zur Kartendarstellung
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
+// Funktion zur Zuordnung eines Emojis basierend auf der Kategorie
 import categoryEmoji from '../utils/categoryEmoji';
+
+// Wird im Moment zwar importiert, aber im Code nicht verwendet (könnte entfernt werden)
 import { CategoryContext } from '../contexts/CategoryContext';
 
 
+// Hilfsfunktion: Erstellt ein benutzerdefiniertes Leaflet-Icon mit einem Emoji
 const getEmojiIcon = (emoji) =>
     L.divIcon({
-        html: `<div style="font-size: 24px;">${emoji}</div>`,
-        className: 'emoji-marker',
-        iconSize: [30, 30],
-        iconAnchor: [15, 15]
+        html: `<div style="font-size: 24px;">${emoji}</div>`, // Emoji als HTML-Inhalt
+        className: 'emoji-marker',                             // CSS-Klasse für Styling
+        iconSize: [30, 30],                                    // Icon-Grösse
+        iconAnchor: [15, 15]                                   // Ankerpunkt für zentrierte Platzierung
     });
 
+
+// Hauptkomponente: Stellt eine interaktive Leaflet-Karte dar
 const Map = ({ center, zoom, events }) => {
     return (
         <MapContainer center={center} zoom={zoom} style={{ height: '50vh', width: '100%' }}>
+            {/* Hintergrundkarte mit OpenStreetMap-Kachelserver */}
             <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+            {/* Iteriert über alle Events und erzeugt Marker mit Popups */}
             {events.map(event => {
-                const coords = event.geometry[0]?.coordinates;
-                const categoryLabel = event.categories[0]?.id || event.categories[0]?.title;
-                const emoji = categoryEmoji(categoryLabel);
+                const coords = event.geometry[0]?.coordinates; // Extrahiert Koordinaten
+                const categoryLabel = event.categories[0]?.id || event.categories[0]?.title; // Kategorie-ID oder -Titel
+                const emoji = categoryEmoji(categoryLabel);    // Holt passendes Emoji
 
-                if (!coords || !categoryLabel) return null;
+                if (!coords || !categoryLabel) return null;    // Falls Koordinaten fehlen, Marker nicht anzeigen
 
-                const [lon, lat] = coords;
+                const [lon, lat] = coords; // Leaflet erwartet [lat, lon] – also umdrehen
 
                 return (
                     <Marker
                         key={event.id}
                         position={[lat, lon]}
-                        icon={getEmojiIcon(emoji)}
+                        icon={getEmojiIcon(emoji)} // Verwendet Emoji als Marker-Icon
                     >
+                        {/* Popup beim Klick auf Marker */}
                         <Popup>
                             <div className="popup-content">
                                 <div className="popup-emoji">{emoji}</div>

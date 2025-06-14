@@ -1,42 +1,49 @@
-import React, { useEffect, useState } from 'react';
+// React Hooks für Zustand und Nebeneffekte
+import { useEffect, useState } from 'react';
+// Importiert die API-Funktion zum Abrufen vergangener Ereignisse
 import { fetchPastEventsByCategory } from '../utils/api';
+// Importiert die Komponente zum Anzeigen eines archivierten Events
 import ArchiveEventCard from '../components/archive-event-card';
 
 const Archive = () => {
 
+    // Zustand für die angezeigten Events
     const [events, setEvents] = useState([]);
+    // Zustand für potenzielle Fehler beim Laden
     const [error, setError] = useState(null);
 
+    // Zustände für Filter: Kategorie, Datum, Begrenzung
     const [selectedCategory, setSelectedCategory] = useState('wildfires');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [limit, setLimit] = useState(20);
 
+    // useEffect wird ausgeführt, wenn Filter verändert werden
     useEffect(() => {
         fetchPastEventsByCategory(selectedCategory, limit)
             .then(fetchedEvents => {
+                // Filtert die Events nach Datum
                 const filteredByDate = fetchedEvents.filter(event => {
                     const eventDate = new Date(event.geometry[0]?.date);
 
-                    // Wenn ein Startdatum gesetzt ist, muss das Eventdatum >= Startdatum sein
                     const isAfterStart = startDate ? eventDate >= new Date(startDate) : true;
-
-                    // Wenn ein Enddatum gesetzt ist, muss das Eventdatum <= Enddatum sein
                     const isBeforeEnd = endDate ? eventDate <= new Date(endDate) : true;
 
                     return isAfterStart && isBeforeEnd;
                 });
 
+                // Setzt die gefilterten Events in den Zustand
                 setEvents(filteredByDate);
             })
             .catch(err => {
                 console.error(err);
                 setError('Could not load events.');
             });
-    }, [selectedCategory, limit, startDate, endDate]);
+    }, [selectedCategory, limit, startDate, endDate]); // Triggert den Effekt bei Änderung
 
     return (
         <div className="past-events-container" style={{ padding: '1rem' }}>
+            {/* Filterbereich für Kategorie, Datum und Limit */}
             <div className="filters">
                 <label>
                     Category:
@@ -45,6 +52,7 @@ const Archive = () => {
                         onChange={(e) => setSelectedCategory(e.target.value)}
                         className='form-input'
                     >
+                        {/* Auswahlmöglichkeit für verschiedene Naturereignis-Kategorien */}
                         <option value="wildfires">🔥 Wildfire</option>
                         <option value="severeStorms">🌪️ Severe Storm</option>
                         <option value="volcanoes">🌋 Volcanoe</option>
@@ -60,6 +68,7 @@ const Archive = () => {
                     </select>
                 </label>
 
+                {/* Filter: Startdatum */}
                 <label>
                     Start Date:
                     <input
@@ -70,6 +79,7 @@ const Archive = () => {
                     />
                 </label>
 
+                {/* Filter: Enddatum */}
                 <label>
                     End Date:
                     <input
@@ -80,6 +90,7 @@ const Archive = () => {
                     />
                 </label>
 
+                {/* Filter: Anzahl der Events (Range-Slider) */}
                 <label>
                     Limit: {limit}
                     <input
@@ -94,8 +105,10 @@ const Archive = () => {
                 </label>
             </div>
 
+            {/* Fehleranzeige */}
             {error && <p>{error}</p>}
 
+            {/* Liste der angezeigten Event-Karten */}
             <div className="event-list">
                 {events.map(event => (
                     <ArchiveEventCard
@@ -109,4 +122,5 @@ const Archive = () => {
         </div>
     );
 };
-export default Archive; 
+
+export default Archive;

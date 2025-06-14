@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import 'leaflet/dist/leaflet.css';
@@ -15,7 +14,7 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<Home />} /> {/* Outside of Layout -> No Nav */}
+      <Route index element={<Home />} /> {/* Ausserhalb Layout -> Keine Nav, kein Footer */}
       <Route path='/' element={<Layout />}>
         <Route path='/live-events' element={<LiveEvents />} />
         <Route path='/archive' element={<Archive />} />

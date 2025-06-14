@@ -7,9 +7,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 // Funktion zur Zuordnung eines Emojis basierend auf der Kategorie
 import categoryEmoji from '../utils/categoryEmoji';
 
-// Wird im Moment zwar importiert, aber im Code nicht verwendet (könnte entfernt werden)
-import { CategoryContext } from '../contexts/CategoryContext';
-
 
 // Hilfsfunktion: Erstellt ein benutzerdefiniertes Leaflet-Icon mit einem Emoji
 const getEmojiIcon = (emoji) =>

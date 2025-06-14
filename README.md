@@ -42,10 +42,8 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 
 ## Storyboard
 - [Zum Storyboard](/natural-events-tracker/docs/storyboard.md)
-
 ## Screen-Mockups
-
-
+- [Zu den Mockups](/natural-events-tracker/docs/mockups.md)
 ## REST-Schnittstellen
 Im Zentrum der Applikation steht die dynamische Anzeige und Verwaltung von Naturereignissen. Dazu greift das System auf zwei unterschiedliche Datenquellen zurück: eine öffentliche REST-API der NASA für Live- und Archivdaten sowie den LocalStorage des Browsers für benutzerdefinierte Ereignisse. Die folgenden Schnittstellen wurden gezielt eingebunden, um sowohl offizielle Ereignisdaten als auch eigene Einträge effizient bereitzustellen und flexibel zu verwalten.
 ### 1. NASA EONET v3 API
@@ -288,8 +286,8 @@ Hier kommt noch Text für die Hilfestellungen...
 >8. Beim Verwenden von `<NavLink>` in `navigation.jsx`
 >9. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
 >10. Unterstützend beim Verfassen der Installationsanleitung
+>11. Beim Ausformulieren der beschreibenden Texte in `storyboard.md` und `mockups.md`
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts
-
 ### SideQuests M294
 >1. Als Nachschlagewerk für Installationen und Umsetzungen

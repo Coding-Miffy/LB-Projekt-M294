@@ -1,14 +1,12 @@
 # Projektdokumentation
->**Modul:** 294
+>**Modul:** 294  
 >**Autor:in:** Natascha Blumer  
->**Datum:** 14.06.2025  
+>**Stand:** 14.06.2025  
 >**Version:** 1.0
-
 ## Einleitung
-Dies ist die Doku zu meinem Abschlussprojekt im Modul 294....
-## Inhaltsverzeichnis
-Hier kommt das Inhaltsverzeichnis hin
+Diese Dokumentation beschreibt das Abschlussprojekt im **Modul 294 – Frontend einer interaktiven Webapplikation realisieren**. Ziel des Projekts war es, eine reaktive Webanwendung mit React zu konzipieren und umzusetzen, die sowohl externe Daten (NASA EONET API) integriert als auch eigene Benutzereingaben lokal verarbeitet.
 
+Die Applikation kombiniert verschiedene Webtechnologien wie React, Leaflet, REST-APIs und LocalStorage, um ein praxisnahes, nutzerzentriertes Produkt zu schaffen. Neben der technischen Umsetzung werden in dieser Dokumentation auch die Anforderungen, Architektur, Tests sowie zentrale Erkenntnisse reflektiert.
 ## Projektidee
 Ich entwickle eine React-basierte Webapplikation, mit der Nutzer:innen aktuelle und vergangene Naturereignisse entdecken und verfolgen können. Die Daten zu globalen Naturereignissen wie Waldbränden, Stürmen oder Vulkanausbrüchen werden über die öffentlich zugängliche **NASA EONET** (*Earth Observatory Natural Event Tracker*) **API in Version 3** bezogen. Die Events werden dabei auf einer interaktiven Karte (mittels Leaflet) dargestellt und können nach Kategorien gefiltert werden.
 

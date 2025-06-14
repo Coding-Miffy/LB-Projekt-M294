@@ -1,14 +1,13 @@
 # Projektdokumentation
+>**Modul:** 294
 >**Autor:in:** Natascha Blumer  
->**Datum:** 08.06.2025  
->**Version:** 1.0  
+>**Datum:** 14.06.2025  
+>**Version:** 1.0
+
 ## Einleitung
 Dies ist die Doku zu meinem Abschlussprojekt im Modul 294....
 ## Inhaltsverzeichnis
 Hier kommt das Inhaltsverzeichnis hin
-### Titelblatt
-- Link
-
 
 ## Projektidee
 Ich entwickle eine React-basierte Webapplikation, mit der Nutzer:innen aktuelle und vergangene Naturereignisse entdecken und verfolgen können. Die Daten zu globalen Naturereignissen wie Waldbränden, Stürmen oder Vulkanausbrüchen werden über die öffentlich zugängliche **NASA EONET** (*Earth Observatory Natural Event Tracker*) **API in Version 3** bezogen. Die Events werden dabei auf einer interaktiven Karte (mittels Leaflet) dargestellt und können nach Kategorien gefiltert werden.
@@ -36,10 +35,8 @@ Die funktionalen Anforderungen leiten sich direkt aus den User Stories ab. Sie b
 | F6 | Speicherung eigener Ereignisse im LocalStorage |
 | F7 | Ansicht für vergangene (nicht mehr aktive) Ereignisse mit Filteroptionen |
 | F8 | Navigation zwischen Startseite, Karte, Archiv und "Eigene Events"-Seite (Routing) |
-
 ## Diagramm der Modell-Komponenten
-
-
+- [Zur Projektarchitektur](/natural-events-tracker/docs/architecture.md)
 ## Storyboard
 - [Zum Storyboard](/natural-events-tracker/docs/storyboard.md)
 ## Screen-Mockups
@@ -274,7 +271,7 @@ Alternativ im Watch-Modus:
 npx vitest
 ```
 ## Hilfestellungen
-Hier kommt noch Text für die Hilfestellungen...
+Während der Entwicklung dieses Projekts habe ich auf verschiedene externe Hilfsmittel zurückgegriffen, um gezielt Unterstützung bei der Umsetzung, Strukturierung und Dokumentation zu erhalten. Im Zentrum stand dabei ChatGPT, das mir insbesondere bei technischen Herausforderungen, Codebeispielen und der sprachlichen Ausarbeitung half. Ergänzend dienten offizielle Lernressourcen wie die SideQuests und Beispiel-Repositories zur Orientierung und Inspiration.
 ### ChatGPT
 >1. Zur Rechtschreibekorrektur und teilweise als Unterstützung bei Formulierungen von Text
 >2. Beim strukturieren des Projekts und des Vorgehens
@@ -282,11 +279,13 @@ Hier kommt noch Text für die Hilfestellungen...
 >4. Als Unterstützung bei der Einbindung von Leaflet
 >5. Zu viele Events überlasteten die App – ChatGPT half mir, eine Limitierung einzubauen.
 >6. Als Unterstützung beim Erstellen von `CategoryContext.jsx` und `categoryEmoji.js`
->7. Beim Styling des Projekts mittels CSS
->8. Beim Verwenden von `<NavLink>` in `navigation.jsx`
->9. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
->10. Unterstützend beim Verfassen der Installationsanleitung
->11. Beim Ausformulieren der beschreibenden Texte in `storyboard.md` und `mockups.md`
+>7. Das meiste rund um das Thema `Context`stammt von ChatGPT
+>8. Beim Styling des Projekts mittels CSS
+>9. Beim Verwenden von `<NavLink>` in `navigation.jsx`
+>10. Unterstützend beim Verfassen der Testfälle und der Unit-Tests
+>11. Unterstützend beim Verfassen der Installationsanleitung
+>12. Beim Ausformulieren der beschreibenden Texte in `storyboard.md`, `mockups.md` und `architecture.md`
+>13. Beim kommentieren des Codes
 ### Repositories zu M294 von JohnnyKrup
 >1. Als Code-Vorlagen und zur Inspiration für die Struktur des Projekts
 ### SideQuests M294

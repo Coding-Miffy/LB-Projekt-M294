@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className='home-container'>
             {/* Titel der Startseite */}
-            <h1 className='home-heading'>Earth Natural Event Tracker</h1>
+            <h1 className='home-heading'>Earth Natural Events Tracker</h1>
 
             {/* Button zum Wechseln zur Seite mit den Live Events */}
             <Button
